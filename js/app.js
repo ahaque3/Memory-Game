@@ -6,32 +6,31 @@ console.log(cards);
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
-// declaring move variable
+// dcount moves
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// declare variables for star icons
+// variables for stars
 const stars = document.querySelectorAll(".fa-star");
 
-// declaring variable of matchedCards
+// variable of matchedCards
 let matchedCard = document.getElementsByClassName("match");
 
  // stars list
  let starsList = document.querySelectorAll(".stars li");
 
  // close icon in modal
- let closeicon = document.querySelector(".close");
+ let closecard = document.querySelector(".close");
 
  // declare modal
- let modal = document.getElementById("popup1")
+ let modal = document.getElementById("winner")
 
  // array for opened cards
 var openedCards = [];
 
 
-// @description shuffles cards
-// @param {array}
-// @returns shuffledarray
+// shuffles cards
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -219,7 +218,7 @@ function congratulations(){
 }
 
 
-// @description close icon on modal
+// close icon on modal
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
