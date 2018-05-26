@@ -1,115 +1,313 @@
 html {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: "Apple Chancery", cursive;
+	background: #9900cc;
+  color: #f2e6ff;
+	font-family: 'Apple Chancery', cursive;
+	font-size: 16px;
 }
 
-/*div for the gameboard and header*/
-.gameboard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+	font-family: 'Apple Chancery', cursive;
 }
+
 
 /*
  * Styles for the deck of cards
  */
 
+
 .deck {
-    width: 75%;
-    min-height: 680px;
-    background: linear-gradient(160deg, #ff0066 0%, #ffccdd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+	width: 85%;
+	background: linear-gradient(160deg, #ff0066 0%, #ffccdd 100%);
+	padding: 5px;
+	border-radius: 4px;
+	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffe6;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+	height: 5.5 em;
+	width: 4.8 em;
+	margin: 4 px;
+	background: #e6b3ff;
+	font-size: 0;
+	color: #f2e6ff;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+  flex: 25% 25% 25% 25%;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
-  animation-name: flip;
+	transform: rotateY(0);
+	background: #000066;
+	cursor: default;
+	animation-name: flip;
 	-webkit-backface-visibility: visible;
 	backface-visibility: visible;
-	animation-duration: .75s;
+	animation-duration: .5s;
 }
 
-.deck .card.close {
-    font-size: 33px;
-    cursor: pointer;
+.deck .card.show {
+	font-size: 33px;
 }
 
 .deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
+	cursor: default;
+	background: #009900;
+	font-size: 33px;
+	animation-name: circle;
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+	animation-duration: .5s;
 }
+
+.deck .card.unmatched {
+	animation-name: womp-womp-wiggle;
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+	animation-duration: .5s;
+	background: #e2043b;
+}
+
+.deck .card.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
 
 /*
  * Styles for the Score Panel
  */
 
+
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+	text-align: left;
+	margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+	list-style: none;
+	display: inline-block;
 }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+	float: right;
+	cursor: pointer;
+}
+
+.fa-star {
+	color: #FFD700;
+}
+
+.timer {
+	display: inline-block;
+	margin: 0 1rem;
+}
+
+
+/*
+ * Styles for congratulations modal
+ */
+
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+  
+.winner {
+	margin: 70px auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+  
+.popup h2 {
+	margin-top: 0;
+	color: #333;
+	font-family: "Apple Chancery" cursive;
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+}
+
+.show {
+	visibility: visible;
+	opacity: 100;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #141214;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+/* animations */
+@keyframes flip {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes circle  {
+  from{
+    border-radius:0 0 0 0;
+    background:#00b300;
+    transform:rotate(0deg);
+  }
+  
+  50%  {
+    border-radius:50% 50% 50% 50%;
+    background:#00b300;
+    transform:rotate(90deg);
+  }
+  
+  to{  
+    border-radius:100% 100% 100% 100%;
+    background:#009900;
+    transform:rotate(360deg);
+  }}
+
+@keyframes womp-womp-wiggle {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+/****** Media queries
+***************************/
+
+
+@media (max-width: 320px) {
+	.deck {
+    width: 85%;
+	}
+
+	.deck .card {
+		height: 4.8em;
+		width: 4.8em;
+	}
+}
+
+
+/* For larger screens
+****************/
+
+@media (min-width: 768px) {
+	.container {
+		font-size: 22px;
+	}
+
+	.deck {
+		width: 660px;
+		height: 680px;
+	}
+
+	.deck .card {
+		height: 125px;
+		width: 125px;
+	}
+
+	.popup {
+		width: 60%;
+	}
 }
