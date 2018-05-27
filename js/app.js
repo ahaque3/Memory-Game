@@ -93,7 +93,7 @@ var displayCard = function (){
 function cardOpen() {
     openedCards.push(this);
     var len = openedCards.length;
-    if(len===1){
+    if(len===1 && moves===0){
       startTimer();}
      else if(len === 2){
         moveCounter();
