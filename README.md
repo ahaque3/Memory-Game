@@ -1,6 +1,8 @@
 #PROJECT SPECIFICATION#
+
 Memory Game
-_Remember preschool and matching all the little animals to see who could be the most pairs?  Yes, this is exactly like that, only different!
+
+*Remember preschool and matching all the little animals to see who could be the most pairs?  Yes, this is exactly like that, only different!*
 
 ###Game Behavior###
 
