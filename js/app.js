@@ -92,9 +92,12 @@ var displayCard = function (){
 function cardOpen() {
     openedCards.push(this);
     var len = openedCards.length;
-    if(len === 2){
+    if(len===1){
+      startTimer();}
+     else if(len === 2){
         moveCounter();
-        if(openedCards[0].type === openedCards[1].type){
+        
+      if(openedCards[0].type === openedCards[1].type){
             matched();
         } else {
             unmatched();
@@ -151,11 +154,12 @@ function moveCounter(){
     moves++;
     counter.innerHTML = moves;
     //start timer on first click
-    if(moves == 1){
+    if(moves == 0 && openedCards==1){
         second = 0;
         minute = 0; 
         hour = 0;
-        startTimer();
+        
+        
     }
     // setting rates based on moves
     if (moves > 8 && moves < 12){
@@ -179,6 +183,8 @@ function moveCounter(){
 var second = 0, minute = 0; hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
+
+
 function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+"mins "+second+"secs";
@@ -192,6 +198,7 @@ function startTimer(){
             minute = 0;
         }
     },1000);
+ 
 }
 
 
