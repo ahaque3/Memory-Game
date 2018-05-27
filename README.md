@@ -22,8 +22,8 @@ This game was created through diligence, hard work, and creative problem-solving
   - compatibility with different screen sizes
   - a star rating that is interactive, based on moves
    - *you basically just have to be really lucky to get 3 stars*
-   -*or perform some front-end wizardry*
-  -a timer that counts the duration of the game
+   - *or perform some front-end wizardry*
+  - a timer that counts the duration of the game
 
 
 ##DEPENDENCIES##
