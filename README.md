@@ -1,62 +1,30 @@
-#PROJECT SPECIFICATION#
 
-Memory Game
+
+#Memory Game#
 
 *Remember preschool and matching all the little animals to see who could be the most pairs?  Yes, this is exactly like that, only different!*
 
-###Game Behavior###
+#**How to Play**#
 
-CRITERIA
+click on a card to flip it over.
+Clicking 2 cards equals 1 move. The timer starts on the click of the first card.
+When all cards have been matched, you win! A popup will reveal your score (1-3 stars), your time and the number of moves.
 
-The game randomly shuffles the cards. A user wins once all cards have successfully been matched.
+****stars are based on moves, not time.****
+*You can play the game by cloning the file and opening in a seperate window: OR you can play a demo of this game at the following website:
+<a href="https://s.codepen.io/ahaque3/debug/xjeoBv/VGrWNwDqmdDM"> A codepen by AHProductions</a>
 
-**Congratulations Popup**
 
-When a user wins the game, a modal appears to congratulate the player and ask if they want to play again. It should also tell the user how much time it took to win the game, and what the star rating was.
+#**FEATURES**#
+This game was created through diligence, hard work, and creative problem-solving (like any other site you've ever seen).  Special features include:
+  - seperate animations for both matched and unmatched cards
+  - animation for flipping cards
+  - compatibility with different screen sizes
+  - a star rating that is interactive, based on moves
+   - *you basically just have to be really lucky to get 3 stars*
+   -*or perform some front-end wizardry*
+  -a timer that counts the duration of the game
 
-**Restart Button**
 
-A restart button allows the player to reset the game board, the timer, and the star rating.
-
-**Star Rating**
-
-The game displays a star rating (from 1 to at least 3) that reflects the player's performance. At the beginning of a game, it should display at least 3 stars. After some number of moves, it should change to a lower star rating. After a few more moves, it should change to a even lower star rating (down to 1).
-
-The number of moves needed to change the rating is up to you, but it should happen at some point.
-
-**Timer**
-
-When the player starts a game, a displayed timer should also start. Once the player wins the game, the timer stops.
-
-**Move Counter**
-
-Game displays the current number of moves a user has made.
-
-###Interface Design###
-
-CRITERIA
-
-**Styling**
-
-Application uses CSS to style components for the game.
-
-**Usability**
-
-All application components are usable across modern desktop, tablet, and phone browsers.
-
-###Documentation###
-
-CRITERIA
-
-**README**
-
-A README file is included detailing the game and all dependencies.
-
-**Comments**
-
-Comments are present and effectively explain longer code procedure when necessary.
-
-**Code Quality**
-
-Code is formatted with consistent, logical, and easy-to-read formatting as described in the Udacity JavaScript Style Guide.
-
+##DEPENDENCIES##
+This file was created with HTML, CSS and JavaScript.
