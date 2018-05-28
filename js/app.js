@@ -77,7 +77,7 @@ function startGame(){
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
     clearInterval(interval);
-    startTimer();
+  
 }
 
 
@@ -95,7 +95,7 @@ function cardOpen() {
     var len = openedCards.length;
     if(len===1 && moves===0){
       startTimer();}
-     else if(len === 2){
+     if(len === 2){
         moveCounter();
         
       if(openedCards[0].type === openedCards[1].type){
@@ -158,8 +158,7 @@ function moveCounter(){
     if(moves == 0 && openedCards==1){
         second = 0;
         minute = 0; 
-        hour = 0;
-        
+        hour = 0;   
         
     }
     // setting rates based on moves
@@ -190,6 +189,7 @@ function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+"mins "+second+"secs";
         second++;
+    
         if(second == 60){
             minute++;
             second=0;
@@ -201,13 +201,14 @@ function startTimer(){
     },1000);
  
 }
-
+//function to stop timer in other browsers
 
 // congrats when all cards match, show modal and moves, time and rating
 function congratulations(){
     if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
+        
 
         // show congratulations modal
         modal.classList.add("show");
@@ -235,7 +236,7 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again 
+// to play Again 
 function playAgain(){
     modal.classList.remove("show");
     startGame();
