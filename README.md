@@ -26,5 +26,4 @@ This game was created through diligence, hard work, and creative problem-solving
   - a timer that counts the duration of the game
 
 
-##DEPENDENCIES##
-This file was created with HTML, CSS and JavaScript.
+
