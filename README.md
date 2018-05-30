@@ -24,7 +24,9 @@ This game was created through diligence, hard work, and creative problem-solving
    - *you basically just have to be really lucky to get 3 stars*
    - *or perform some front-end wizardry*
   - a timer that counts the duration of the game
-#**DEPENDENCIES**#
-CodeAwesome:  <a href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> </a>
 
+
+#**DEPENDENCIES**#
+
+CodeAwesome
 
